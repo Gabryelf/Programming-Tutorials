@@ -1,7 +1,7 @@
 <div align="center">
 
 <!-- Логотип и заголовок -->
-<img src="https://readme-typing-svg.herokuapp.com/?font=Roboto+Slab&color=37bcf7&size=35&center=true&vCenter=true&width=500&height=70&duration=4000&lines=Старт-Фронтенд-Разработки;🚀+Веб-Разработка;💫Гипертекст;🎬+Каскадные-Стили" alt="Header"/>
+<img src="https://readme-typing-svg.herokuapp.com/?font=Roboto+Slab&color=37bcf7&size=35&center=true&vCenter=true&width=500&height=70&duration=4000&lines=Фронтенд-Разработка;🚀+Веб-Разработка;💫Гипертекст;🎬+Каскадные-Стили" alt="Header"/>
 
 <!-- Streak -->
 <img src="https://github-readme-streak-stats.herokuapp.com/?user=Gabryelf&theme=radical" alt="mystreak"/>
