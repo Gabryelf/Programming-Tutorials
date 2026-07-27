@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Фронтенд-примеры для новичков</title>
+    <!-- Google Fonts & Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(145deg, #f8fafc 0%, #eef2f5 100%);
+            color: #0a0f1c;
+            line-height: 1.5;
+            padding: 2rem 1.5rem;
+        }
+
+        .container {
+            max-width: 1300px;
+            margin: 0 auto;
+        }
+
+        /* Header */
+        .hero {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .hero h1 {
+            font-size: 2.8rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, #1e2b3c, #2b5f8a);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+            letter-spacing: -0.02em;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: #2c3e44;
+            margin-top: 0.8rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .badge {
+            display: inline-block;
+            background: #ffffffcc;
+            backdrop-filter: blur(4px);
+            padding: 0.3rem 1rem;
+            border-radius: 40px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            margin-top: 1rem;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+        }
+
+        /* Grid карточек */
+        .examples-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0 4rem;
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(2px);
+            border-radius: 2rem;
+            padding: 1.6rem;
+            transition: all 0.25s ease;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.05), 0 0 0 1px rgba(0,0,0,0.02);
+            border: 1px solid rgba(255,255,255,0.6);
+        }
+
+        .card:hover {
+            transform: translateY(-6px);
+            background: white;
+            box-shadow: 0 20px 30px -12px rgba(0,0,0,0.15);
+            border-color: #cbd5e1;
+        }
+
+        .card-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .card h3 {
+            font-size: 1.65rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .card p {
+            color: #2c3e50;
+            margin: 0.75rem 0;
+            font-size: 0.95rem;
+        }
+
+        .links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1.2rem;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.9rem;
+            padding: 0.5rem 1.2rem;
+            border-radius: 3rem;
+            transition: 0.2s;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .btn-primary {
+            background: #0f2b38;
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: #1d4b60;
+        }
+
+        .btn-outline {
+            border: 1px solid #9aaeb9;
+            background: transparent;
+            color: #1e2b32;
+        }
+
+        .btn-outline:hover {
+            background: #e9edf2;
+            border-color: #2c5f7a;
+        }
+
+        /* Секция ссылок на другие репозитории */
+        .repo-section {
+            background: #ffffffcc;
+            backdrop-filter: blur(8px);
+            border-radius: 2rem;
+            padding: 1.8rem 2rem;
+            margin-top: 2rem;
+            border: 1px solid rgba(255,255,255,0.7);
+        }
+
+        .repo-section h2 {
+            font-size: 1.6rem;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .repo-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.2rem;
+            margin-top: 1rem;
+        }
+
+        .repo-link {
+            background: #f1f5f9;
+            padding: 0.5rem 1.3rem;
+            border-radius: 3rem;
+            text-decoration: none;
+            color: #0f2b38;
+            font-weight: 500;
+            transition: 0.2s;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .repo-link:hover {
+            background: #e2e8f0;
+            transform: scale(1.02);
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 3rem;
+            font-size: 0.85rem;
+            color: #556b78;
+            border-top: 1px solid #cbd5e1;
+            padding-top: 2rem;
+        }
+
+        @media (max-width: 640px) {
+            body { padding: 1rem; }
+            .hero h1 { font-size: 2rem; }
+            .examples-grid { gap: 1rem; }
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="hero">
+        <h1>✨ фронтенд-кейсы</h1>
+        <p>Интерактивные мини-проекты с подробными комментариями — учись, переписывай, улучшай</p>
+        <div class="badge">Наглядные примеры для старта</div>
+    </div>
+
+    <div class="examples-grid">
+        <!-- Пример 1 -->
+        <div class="card">
+            <div class="card-icon">🃏</div>
+            <h3>01 · Hover‑карточка</h3>
+            <p>CSS-анимация + плавные эффекты. Простой способ оживить интерфейс.</p>
+            <div class="links">
+                <a href="./examples/01-hover-card/index.html" class="btn btn-primary">🔍 Посмотреть</a>
+                <a href="https://github.com/Gabryelf/Html-Base/blob/main/html/examples/01-hover-card/README.md" class="btn btn-outline">📖 README</a>
+            </div>
+        </div>
+        <!-- Пример 2 -->
+        
+        <!-- Пример 3 -->
+        
+        <!-- Пример 4 -->
+        
+        <!-- Пример 5 -->
+       
+    </div>
+
+    <div class="repo-section">
+        <h2><span class="material-symbols-outlined" style="font-size: 28px;">folder_shared</span> Мои другие репозитории</h2>
+        <div class="repo-list">
+            <a href="https://github.com/Gabryelf/StartCours" class="repo-link" target="_blank">Курс по Java Script</a>
+            <a href="https://github.com/Gabryelf/JS-MINI-GAME" class="repo-link" target="_blank">Мини Игры на Java Script</a>
+            <a href="https://github.com/Gabryelf/Atlas-Assets" class="repo-link" target="_blank">Рессурсы для игр</a>
+            <a href="https://github.com/Gabryelf/Node-Course" class="repo-link" target="_blank">Курс по Node JS</a>
+        </div>
+        <p style="margin-top: 1.2rem; font-size: 0.85rem;">🔗 все ссылки ведут на GitHub — форкай и изучай код</p>
+    </div>
+    <footer>
+        Каждый пример содержит → шаблон и подробный README с заданием. Переписывай код и экспериментируй.
+    </footer>
+</div>
+</body>
+</html>
