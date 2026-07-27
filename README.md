@@ -1,7 +1,7 @@
 
 
 <div align="center">
-  <img src="docs/images/logo.svg" alt="NeoCode Logo" width="120" height="120" style="background: linear-gradient(135deg, #c7d2fe, #818cf8); border-radius: 28px; padding: 12px; margin-bottom: 12px;">
+  <img src="docs/info/logo-1.svg" alt="NeoCode Logo" width="120" height="120" style="background: linear-gradient(135deg, #c7d2fe, #818cf8); border-radius: 28px; padding: 12px; margin-bottom: 12px;">
   
   <h1 style="font-size: 3.2rem; font-weight: 800; background: linear-gradient(135deg, #c7d2fe, #818cf8, #a78bfa); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin: 0; font-family: 'Inter', -apple-system, sans-serif;">
     NeoCode
@@ -58,12 +58,12 @@
   <table>
     <tr>
       <td align="center" style="padding: 10px;">
-        <img src="docs/screenshots/main-menu.png" alt="Главное меню" width="400" style="border-radius: 16px; box-shadow: 0 20px 40px -12px rgba(0,0,0,0.6); border: 1px solid rgba(255,255,255,0.04);">
+        <img src="docs/screens/documents/1.png" alt="Главное меню" width="400" style="border-radius: 16px; box-shadow: 0 20px 40px -12px rgba(0,0,0,0.6); border: 1px solid rgba(255,255,255,0.04);">
         <br>
         <sub><strong>Главное меню</strong> — карточки курсов</sub>
       </td>
       <td align="center" style="padding: 10px;">
-        <img src="docs/screenshots/python-roadmap.png" alt="Road-map Python" width="400" style="border-radius: 16px; box-shadow: 0 20px 40px -12px rgba(0,0,0,0.6); border: 1px solid rgba(255,255,255,0.04);">
+        <img src="docs/screens/documents/1.png" alt="Road-map Python" width="400" style="border-radius: 16px; box-shadow: 0 20px 40px -12px rgba(0,0,0,0.6); border: 1px solid rgba(255,255,255,0.04);">
         <br>
         <sub><strong>Road-map Python</strong> — вертикальный список уроков</sub>
       </td>
