@@ -1,18 +1,33 @@
+<div align="center">
+  <br>
+  <img src="https://github.com/Gabryelf/Programming-Tutorials/blob/main/docs/images/icons_lang/Python-Dark.svg" width="120" height="120" alt="Python">
+  <br>
+  <br>
+  
+  # 🐍 Урок 1: Первое знакомство с Python
+  
+  <p align="center">
+    <strong>🚀 Старт в мир программирования</strong><br>
+    <em>Установка, настройка и первый код</em>
+  </p>
+  
+  <p align="center">
+    <a href="#-цель-урока">
+      <img src="https://img.shields.io/badge/🎯-Цель_урока-4B8BBE?style=for-the-badge" alt="Цель">
+    </a>
+    <a href="#-установка-python">
+      <img src="https://img.shields.io/badge/📥-Установка_Python-3776AB?style=for-the-badge" alt="Установка">
+    </a>
+    <a href="#-первая-программа">
+      <img src="https://img.shields.io/badge/💻-Первая_программа-FFD43B?style=for-the-badge" alt="Программа">
+    </a>
+  </p>
+
+</div>
+
+---
 
 
-## 📁 Структура файлов для урока
-
-Сначала создайте следующую структуру в папке `python/start-course/lesson-1/`:
-
-```
-python/start-course/lesson-1/
-├── README.md          # Главная инструкция
-└── hello.py           # Наш первый файл с кодом
-```
-
-## 📄 Содержимое README.md
-
-```markdown
 # 🐍 Урок 1: Установка Python и создание первой программы
 
 ## 🎯 Цель урока
@@ -38,19 +53,27 @@ python/start-course/lesson-1/
    https://www.python.org/downloads/
    ```
 
-   ![Скачивание Python](./screens/python-download.png)
+   ![Скачивание Python](https://github.com/Gabryelf/Programming-Tutorials/blob/main/docs/screens/python/start-lesson-1/py1.png)
 
 2. Нажмите на жёлтую кнопку **"Download Python X.X.X"** (будет показана последняя версия).
 
 3. Файл установщика сохранится в папку **Загрузки** вашего компьютера.
-
+> Вы так же можете ознакомиться с документацией и сайтом в целом, так как это официальное храние языка и технологий связанных с ним.
+> 
+ ![Версии Python](https://github.com/Gabryelf/Programming-Tutorials/blob/main/docs/screens/python/start-lesson-1/py2.png)
+>
+> Информация о версиях даст вам контроль над теми свойствами которые вы захотите использовать стабильно. Рекомендую не забывать про этот сайт и добавить его в закладки, что бы позже вернуться сюда за большей информацией.
+>
+ ![Документация Python](https://github.com/Gabryelf/Programming-Tutorials/blob/main/docs/screens/python/start-lesson-1/py3.png)
+>
 ---
+
 
 ### Шаг 2: Запуск установки
 
 1. Найдите скачанный файл в папке **Загрузки** (обычно называется `python-X.X.X-amd64.exe`).
 
-   ![Установка Python шаг 1](./screens/python-install-1.png)
+   ![Установка Python шаг 1](https://github.com/Gabryelf/Programming-Tutorials/blob/main/docs/screens/python/start-lesson-1/py4.png)
 
 2. **ВАЖНО!** В самом низу окна установки обязательно поставьте галочку **"Add Python to PATH"**.
    
@@ -58,7 +81,7 @@ python/start-course/lesson-1/
 
 3. Нажмите кнопку **"Install Now"** для стандартной установки.
 
-   ![Установка Python шаг 2](./screens/python-install-2.png)
+   ![Установка Python шаг 2](https://github.com/Gabryelf/Programming-Tutorials/blob/main/docs/screens/python/start-lesson-1/py5.png)
 
 4. Дождитесь окончания установки. Появится окно с сообщением "Setup was successful".
 
@@ -77,6 +100,9 @@ python/start-course/lesson-1/
    ```
 
    Если вы видите версию Python — всё работает!
+
+    ![Установка Python шаг 3](https://github.com/Gabryelf/Programming-Tutorials/blob/main/docs/screens/python/start-lesson-1/py6.png)
+
 
 ---
 
