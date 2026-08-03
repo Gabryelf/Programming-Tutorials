@@ -1,7 +1,7 @@
 
 
 <div align="center">
-  <img src="docs/info/logo-1.svg" alt="NeoCode Logo" width="120" height="120" style="background: linear-gradient(135deg, #c7d2fe, #818cf8); border-radius: 28px; padding: 12px; margin-bottom: 12px;">
+  <img src="https://github.com/Gabryelf/Programming-Tutorials/blob/main/docs/info/logo-neo-code.png" alt="NeoCode Logo" width="180" height="180" style="background: linear-gradient(135deg, #c7d2fe, #818cf8); border-radius: 28px; padding: 12px; margin-bottom: 12px;">
   
   <h1 style="font-size: 3.2rem; font-weight: 800; background: linear-gradient(135deg, #c7d2fe, #818cf8, #a78bfa); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin: 0; font-family: 'Inter', -apple-system, sans-serif;">
     NeoCode
@@ -68,18 +68,7 @@
         <sub><strong>Road-map Python</strong> — вертикальный список уроков</sub>
       </td>
     </tr>
-    <tr>
-      <td align="center" style="padding: 10px;">
-        <img src="docs/screenshots/lesson-card.png" alt="Карточка урока" width="400" style="border-radius: 16px; box-shadow: 0 20px 40px -12px rgba(0,0,0,0.6); border: 1px solid rgba(255,255,255,0.04);">
-        <br>
-        <sub><strong>Карточка урока</strong> — интерактивная, с иконкой и описанием</sub>
-      </td>
-      <td align="center" style="padding: 10px;">
-        <img src="docs/screenshots/readme-example.png" alt="Пример README" width="400" style="border-radius: 16px; box-shadow: 0 20px 40px -12px rgba(0,0,0,0.6); border: 1px solid rgba(255,255,255,0.04);">
-        <br>
-        <sub><strong>README.md урока</strong> — код и теория</sub>
-      </td>
-    </tr>
+    
   </table>
 </div>
 
@@ -114,7 +103,7 @@
 ---
 
 
-## 📸 Скриншоты в деталях
+<!--## 📸 Скриншоты в деталях
 
 ### Главное меню
 <div align="center">
@@ -126,7 +115,7 @@
   <img src="docs/screenshots/python-roadmap.png" alt="Road-map Python" width="600" style="border-radius: 16px; box-shadow: 0 20px 40px -12px rgba(0,0,0,0.6); border: 1px solid rgba(255,255,255,0.04);">
 </div>
 
----
+----->
 
 
 ## 📄 Лицензия
