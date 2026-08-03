@@ -1,0 +1,610 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Урок Python — Современная презентация</title>
+    <style>
+        /* ===== БАЗА ===== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', 'Segoe UI', system-ui, -apple-system, sans-serif;
+            background: #080b14;
+            color: #f0f4ff;
+            height: 100vh;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* ===== КОНТЕЙНЕР ===== */
+        .presentation-container {
+            width: 100vw;
+            height: 100vh;
+            position: relative;
+            background: radial-gradient(ellipse at 20% 30%, #141b2b, #070a12);
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+        }
+
+        /* ===== СЛАЙДЫ ===== */
+        .slides-wrapper {
+            flex: 1;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 40px 80px;
+            opacity: 0;
+            transform: scale(0.96) translateY(20px);
+            transition: all 0.7s cubic-bezier(0.23, 1, 0.32, 1);
+            pointer-events: none;
+            text-align: center;
+            will-change: transform, opacity;
+        }
+
+        .slide.active {
+            opacity: 1;
+            transform: scale(1) translateY(0);
+            pointer-events: all;
+            z-index: 10;
+        }
+
+        /* ===== ТЕКСТ ===== */
+        h1 {
+            font-size: 4.6rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, #fbbf24, #f59e0b);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 16px;
+            letter-spacing: -1.5px;
+            filter: drop-shadow(0 0 40px rgba(251, 191, 36, 0.15));
+        }
+
+        h2 {
+            font-size: 3.2rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+            color: #e8edff;
+            letter-spacing: -0.5px;
+        }
+
+        .subtitle {
+            font-size: 1.5rem;
+            color: #94a3c7;
+            font-weight: 400;
+            max-width: 720px;
+            line-height: 1.6;
+        }
+
+        .glow-text {
+            color: #fbbf24;
+            text-shadow: 0 0 30px rgba(251, 191, 36, 0.2);
+        }
+
+        /* ===== СТЕКЛЯННЫЕ КАРТОЧКИ ===== */
+        .glass {
+            background: rgba(255, 255, 255, 0.04);
+            backdrop-filter: blur(16px) saturate(180%);
+            -webkit-backdrop-filter: blur(16px) saturate(180%);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            border-radius: 28px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6), inset 0 1px 0 rgba(255, 255, 255, 0.05);
+        }
+
+        /* ===== ДИАГРАММА ===== */
+        .diagram {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 28px;
+            flex-wrap: wrap;
+            margin-top: 24px;
+            width: 100%;
+            max-width: 1100px;
+        }
+
+        .diagram-box {
+            composes: glass;
+            padding: 28px 32px;
+            min-width: 170px;
+            text-align: center;
+            transition: all 0.3s ease;
+            border-color: rgba(255, 255, 255, 0.04);
+        }
+
+        .diagram-box .icon {
+            font-size: 3.8rem;
+            margin-bottom: 10px;
+            display: block;
+            filter: drop-shadow(0 0 20px rgba(255, 255, 255, 0.05));
+        }
+
+        .diagram-box .label {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #d6def5;
+        }
+
+        .diagram-box .desc {
+            font-size: 0.9rem;
+            color: #7b89b0;
+            margin-top: 4px;
+        }
+
+        .diagram-box.highlight {
+            border-color: rgba(251, 191, 36, 0.3);
+            background: rgba(251, 191, 36, 0.06);
+            box-shadow: 0 0 40px rgba(251, 191, 36, 0.05);
+        }
+
+        .arrow {
+            font-size: 2.8rem;
+            color: #fbbf24;
+            animation: arrowPulse 1.8s infinite ease-in-out;
+            filter: drop-shadow(0 0 16px rgba(251, 191, 36, 0.2));
+        }
+
+        @keyframes arrowPulse {
+            0% { transform: translateX(0); opacity: 0.5; }
+            50% { transform: translateX(14px); opacity: 1; }
+            100% { transform: translateX(0); opacity: 0.5; }
+        }
+
+        /* ===== IDE GRID ===== */
+        .ide-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+            width: 100%;
+            max-width: 960px;
+            margin-top: 16px;
+        }
+
+        .ide-feature {
+            composes: glass;
+            padding: 26px 24px;
+            text-align: left;
+            border-left: 3px solid #fbbf24;
+            transition: all 0.3s ease;
+        }
+
+        .ide-feature:hover {
+            transform: translateY(-4px);
+            border-color: #f59e0b;
+        }
+
+        .ide-feature .feat-icon {
+            font-size: 2rem;
+            margin-right: 12px;
+        }
+
+        .ide-feature h3 {
+            font-size: 1.4rem;
+            font-weight: 500;
+            color: #eef3ff;
+            display: inline-block;
+        }
+
+        .ide-feature p {
+            color: #8d9ac7;
+            margin-top: 8px;
+            font-size: 1rem;
+            line-height: 1.5;
+        }
+
+        /* ===== КОД ===== */
+        .code-block {
+            background: #0d111c;
+            padding: 20px 32px;
+            border-radius: 18px;
+            font-family: 'JetBrains Mono', 'Fira Code', monospace;
+            font-size: 1.5rem;
+            color: #d4def7;
+            border: 1px solid #1e2638;
+            margin: 16px 0;
+            text-align: left;
+            width: fit-content;
+            box-shadow: inset 0 4px 20px rgba(0, 0, 0, 0.6);
+        }
+        .code-block .kw { color: #c792ea; }
+        .code-block .fn { color: #82aaff; }
+        .code-block .str { color: #c3e88d; }
+        .code-block .cm { color: #546e7a; font-style: italic; }
+        .code-block .num { color: #f78c6c; }
+
+        /* ===== БЭЙДЖИ ===== */
+        .badge {
+            background: rgba(255, 255, 255, 0.04);
+            padding: 10px 28px;
+            border-radius: 60px;
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            font-size: 1.1rem;
+            color: #bcc6e5;
+            backdrop-filter: blur(4px);
+        }
+
+        /* ===== ИНДИКАТОРЫ ===== */
+        .slide-counter {
+            position: absolute;
+            bottom: 30px;
+            left: 0;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            gap: 14px;
+            z-index: 20;
+        }
+
+        .dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 20px;
+            background: #2d3650;
+            transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+            cursor: pointer;
+            border: none;
+            outline: none;
+        }
+        .dot.active {
+            background: #fbbf24;
+            width: 40px;
+            box-shadow: 0 0 28px rgba(251, 191, 36, 0.35);
+        }
+
+        /* ===== НАВИГАЦИЯ ===== */
+        .nav-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 30;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            color: #b0bddb;
+            font-size: 2.6rem;
+            padding: 8px 22px;
+            border-radius: 60px;
+            cursor: pointer;
+            backdrop-filter: blur(12px);
+            transition: all 0.25s ease;
+            user-select: none;
+            font-weight: 300;
+        }
+        .nav-btn:hover {
+            background: rgba(251, 191, 36, 0.08);
+            border-color: #fbbf24;
+            color: #fbbf24;
+            box-shadow: 0 0 30px rgba(251, 191, 36, 0.05);
+        }
+        .nav-left { left: 24px; }
+        .nav-right { right: 24px; }
+
+        /* ===== FULLSCREEN КНОПКА ===== */
+        .fs-btn {
+            position: absolute;
+            top: 24px;
+            right: 28px;
+            z-index: 40;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            color: #8892b5;
+            font-size: 1.6rem;
+            padding: 8px 16px;
+            border-radius: 40px;
+            cursor: pointer;
+            backdrop-filter: blur(12px);
+            transition: all 0.25s ease;
+            font-family: inherit;
+            line-height: 1;
+        }
+        .fs-btn:hover {
+            background: rgba(255, 255, 255, 0.07);
+            color: #f0f4ff;
+            border-color: rgba(255, 255, 255, 0.15);
+        }
+
+        /* ===== АНИМАЦИИ ПОЯВЛЕНИЯ ===== */
+        .slide.active .diagram-box,
+        .slide.active .ide-feature,
+        .slide.active .code-block,
+        .slide.active .badge,
+        .slide.active .glass-card {
+            animation: fadeUp 0.7s ease forwards;
+            opacity: 0;
+        }
+        .slide.active .diagram-box:nth-child(1) { animation-delay: 0.05s; }
+        .slide.active .diagram-box:nth-child(2) { animation-delay: 0.2s; }
+        .slide.active .diagram-box:nth-child(3) { animation-delay: 0.35s; }
+        .slide.active .ide-feature:nth-child(1) { animation-delay: 0.1s; }
+        .slide.active .ide-feature:nth-child(2) { animation-delay: 0.25s; }
+        .slide.active .ide-feature:nth-child(3) { animation-delay: 0.4s; }
+        .slide.active .ide-feature:nth-child(4) { animation-delay: 0.55s; }
+
+        @keyframes fadeUp {
+            0% { opacity: 0; transform: translateY(24px) scale(0.97); }
+            100% { opacity: 1; transform: translateY(0) scale(1); }
+        }
+
+        /* ===== АДАПТИВ ===== */
+        @media (max-width: 900px) {
+            .slide { padding: 30px 32px; }
+            h1 { font-size: 3.2rem; }
+            h2 { font-size: 2.4rem; }
+            .subtitle { font-size: 1.2rem; }
+            .diagram { gap: 14px; }
+            .arrow { font-size: 2rem; }
+            .ide-grid { grid-template-columns: 1fr; }
+            .nav-btn { font-size: 1.8rem; padding: 4px 14px; }
+            .nav-left { left: 12px; }
+            .nav-right { right: 12px; }
+            .code-block { font-size: 1.2rem; padding: 14px 20px; }
+            .fs-btn { top: 16px; right: 16px; font-size: 1.2rem; padding: 6px 12px; }
+        }
+
+        @media (max-width: 500px) {
+            h1 { font-size: 2.4rem; }
+            h2 { font-size: 1.8rem; }
+            .diagram-box { padding: 18px 16px; min-width: 120px; }
+            .diagram-box .icon { font-size: 2.6rem; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="presentation-container" id="app">
+
+    <!-- КНОПКА FULLSCREEN -->
+    <button class="fs-btn" id="fsBtn" title="Полноэкранный режим">⛶</button>
+
+    <!-- СЛАЙДЫ -->
+    <div class="slides-wrapper" id="slidesWrapper">
+
+        <!-- СЛАЙД 0: Вступление -->
+        <div class="slide active" data-index="0">
+            <div style="max-width: 820px;">
+                <div style="font-size: 5.6rem; margin-bottom: 12px; filter: drop-shadow(0 0 60px rgba(251,191,36,0.15));">🐍</div>
+                <h1>Основы Python</h1>
+                <p class="subtitle" style="font-size: 2.2rem; font-weight: 300; color: #c8d2ed;">
+                    Урок 1: Установка и первое знакомство
+                </p>
+                <div style="margin-top: 40px; display: flex; gap: 16px; justify-content: center; flex-wrap: wrap;">
+                    <span class="badge">⚙️ Python</span>
+                    <span class="badge">💻 PyCharm</span>
+                    <span class="badge">🧠 Интерпретатор</span>
+                </div>
+                <div style="margin-top: 56px; color: #4f5b7a; font-size: 0.95rem; letter-spacing: 0.5px;">
+                    ➜  Нажмите → или кликните справа
+                </div>
+            </div>
+        </div>
+
+        <!-- СЛАЙД 1: Интерпретатор -->
+        <div class="slide" data-index="1">
+            <h2>🔁 Как работает Python?</h2>
+            <p class="subtitle" style="margin-bottom: 28px;">Интерпретатор — это «переводчик» между кодом и компьютером</p>
+
+            <div class="diagram">
+                <div class="diagram-box">
+                    <span class="icon">📄</span>
+                    <div class="label">Ваш код</div>
+                    <div class="desc"><span style="font-family: monospace; color: #a5b4d9;">print("Hi")</span></div>
+                </div>
+
+                <div class="arrow">➡️</div>
+
+                <div class="diagram-box highlight">
+                    <span class="icon">⚡</span>
+                    <div class="label">Интерпретатор</div>
+                    <div class="desc">Читает и выполняет<br>построчно</div>
+                </div>
+
+                <div class="arrow">➡️</div>
+
+                <div class="diagram-box">
+                    <span class="icon">🖥️</span>
+                    <div class="label">Результат</div>
+                    <div class="desc"><span style="font-family: monospace; color: #69c4a0;">Hi</span></div>
+                </div>
+            </div>
+
+            <div style="margin-top: 32px; background: rgba(255,255,255,0.02); padding: 12px 32px; border-radius: 60px; border: 1px solid rgba(255,255,255,0.04); backdrop-filter: blur(4px);">
+                <span style="color: #fbbf24;">Код</span> <span style="color: #5a6a8a;">→</span> <span style="color: #82aaff;">Интерпретатор</span> <span style="color: #5a6a8a;">→</span> <span style="color: #69c4a0;">Вывод</span>
+            </div>
+        </div>
+
+        <!-- СЛАЙД 2: Установка Python -->
+        <div class="slide" data-index="2">
+            <h2>📥 Установка Python</h2>
+            <div class="diagram" style="gap: 16px;">
+                <div class="diagram-box" style="min-width: 140px;">
+                    <span class="icon">🌐</span>
+                    <div class="label">python.org</div>
+                    <div class="desc">Скачай установщик</div>
+                </div>
+                <div class="arrow" style="animation-duration: 1.2s;">⬇️</div>
+                <div class="diagram-box" style="min-width: 140px; border-color: rgba(76, 175, 80, 0.3);">
+                    <span class="icon">✅</span>
+                    <div class="label">Галочка</div>
+                    <div class="desc"><span style="color: #81c784;">Add to PATH</span></div>
+                </div>
+                <div class="arrow" style="animation-duration: 1.2s;">⬇️</div>
+                <div class="diagram-box" style="min-width: 140px;">
+                    <span class="icon">🎯</span>
+                    <div class="label">Установка</div>
+                    <div class="desc">Жми Install Now</div>
+                </div>
+            </div>
+            <div style="margin-top: 28px; background: rgba(251, 191, 36, 0.06); padding: 14px 32px; border-radius: 60px; border: 1px solid rgba(251, 191, 36, 0.12);">
+                💡 <span style="color: #d6def5;">Самое важное — не пропустить <strong style="color: #fbbf24;">PATH</strong>!</span>
+            </div>
+        </div>
+
+        <!-- СЛАЙД 3: IDE + PyCharm -->
+        <div class="slide" data-index="3">
+            <h2>🛠️ IDE — среда разработки</h2>
+            <p class="subtitle" style="margin-bottom: 20px;">PyCharm — это как «умный редактор» для кода</p>
+
+            <div class="ide-grid">
+                <div class="ide-feature">
+                    <div><span class="feat-icon">🎨</span> <h3>Подсветка</h3></div>
+                    <p>Код становится цветным — ошибки видно сразу</p>
+                    <div class="code-block" style="font-size: 0.95rem; margin-top: 12px; width: 100%;">
+                        <span class="kw">def</span> <span class="fn">greet</span>():<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;<span class="kw">print</span>(<span class="str">"Hello"</span>) <span class="cm"># зелено</span>
+                    </div>
+                </div>
+                <div class="ide-feature">
+                    <div><span class="feat-icon">💡</span> <h3>Подсказки</h3></div>
+                    <p>IDE предлагает варианты, пока вы печатаете</p>
+                    <div style="background: #0a0e17; padding: 14px 18px; border-radius: 14px; margin-top: 12px; font-family: monospace; color: #7b89b0; border: 1px solid #1a2233;">
+                        print( <span style="color: #fbbf24;">|</span>  )  ← автодополнение
+                    </div>
+                </div>
+                <div class="ide-feature">
+                    <div><span class="feat-icon">🐛</span> <h3>Отладка</h3></div>
+                    <p>Шаг за шагом смотрите, что происходит внутри кода</p>
+                </div>
+                <div class="ide-feature">
+                    <div><span class="feat-icon">📁</span> <h3>Проекты</h3></div>
+                    <p>Все файлы в одном окне — удобно и чисто</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- СЛАЙД 4: Первая программа -->
+        <div class="slide" data-index="4">
+            <h2>🚀 Первая программа</h2>
+            <div style="display: flex; gap: 32px; align-items: center; flex-wrap: wrap; justify-content: center; margin-top: 8px;">
+                <div class="glass" style="padding: 28px 40px; border-color: rgba(255,255,255,0.04);">
+                    <div style="font-family: 'JetBrains Mono', monospace; font-size: 1.8rem; text-align: left; color: #d4def7;">
+                        <span class="kw" style="color: #c792ea;">print</span>(<span class="str" style="color: #c3e88d;">"Привет, мир!"</span>)
+                    </div>
+                </div>
+                <div style="font-size: 3.2rem; color: #fbbf24; filter: drop-shadow(0 0 20px rgba(251,191,36,0.2));">➡️</div>
+                <div class="glass" style="padding: 24px 44px; border-color: rgba(105, 196, 160, 0.15); background: rgba(105, 196, 160, 0.03);">
+                    <span style="font-size: 1.8rem; color: #69c4a0;">Привет, мир!</span>
+                </div>
+            </div>
+            <p class="subtitle" style="margin-top: 32px; font-size: 1.2rem; color: #94a3c7;">
+                Запуск: зелёная кнопка ▶️ в PyCharm
+            </p>
+        </div>
+
+        <!-- СЛАЙД 5: Итог -->
+        <div class="slide" data-index="5">
+            <h1 style="font-size: 4rem;">🎯 Итог урока</h1>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 24px; max-width: 680px; width: 100%; margin-top: 24px;">
+                <div class="glass" style="padding: 28px 20px; border-bottom: 3px solid #fbbf24;">
+                    <div style="font-size: 2.8rem;">🐍</div>
+                    <h3 style="font-size: 1.4rem; font-weight: 500; color: #e8edff;">Python установлен</h3>
+                    <p style="color: #7b89b0; margin-top: 4px;">Интерпретатор готов</p>
+                </div>
+                <div class="glass" style="padding: 28px 20px; border-bottom: 3px solid #69c4a0;">
+                    <div style="font-size: 2.8rem;">💻</div>
+                    <h3 style="font-size: 1.4rem; font-weight: 500; color: #e8edff;">PyCharm готов</h3>
+                    <p style="color: #7b89b0; margin-top: 4px;">Среда для кода</p>
+                </div>
+            </div>
+            <p style="margin-top: 40px; font-size: 1.3rem; color: #8d9ac7;">
+                В следующем уроке напишем настоящую программу!
+            </p>
+        </div>
+
+    </div>
+
+    <!-- НАВИГАЦИЯ -->
+    <button class="nav-btn nav-left" id="prevBtn">‹</button>
+    <button class="nav-btn nav-right" id="nextBtn">›</button>
+
+    <!-- ИНДИКАТОРЫ -->
+    <div class="slide-counter" id="counter">
+        <button class="dot active" data-index="0"></button>
+        <button class="dot" data-index="1"></button>
+        <button class="dot" data-index="2"></button>
+        <button class="dot" data-index="3"></button>
+        <button class="dot" data-index="4"></button>
+        <button class="dot" data-index="5"></button>
+    </div>
+</div>
+
+<script>
+    (function() {
+        const slides = document.querySelectorAll('.slide');
+        const dots = document.querySelectorAll('.dot');
+        const prevBtn = document.getElementById('prevBtn');
+        const nextBtn = document.getElementById('nextBtn');
+        const fsBtn = document.getElementById('fsBtn');
+        const container = document.getElementById('app');
+        let current = 0;
+        const total = slides.length;
+
+        function goTo(index) {
+            if (index < 0) index = 0;
+            if (index >= total) index = total - 1;
+            slides.forEach((slide, i) => slide.classList.toggle('active', i === index));
+            dots.forEach((dot, i) => dot.classList.toggle('active', i === index));
+            current = index;
+        }
+
+        function next() { goTo(current + 1); }
+        function prev() { goTo(current - 1); }
+
+        // Кнопки
+        nextBtn.addEventListener('click', next);
+        prevBtn.addEventListener('click', prev);
+
+        // Клик по слайду (правая/левая половина)
+        document.getElementById('slidesWrapper').addEventListener('click', (e) => {
+            const rect = e.currentTarget.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            if (x > rect.width * 0.7) next();
+            else if (x < rect.width * 0.3) prev();
+        });
+
+        // Точки
+        dots.forEach((dot) => {
+            dot.addEventListener('click', () => goTo(parseInt(dot.dataset.index)));
+        });
+
+        // Клавиши
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowRight' || e.key === ' ') { e.preventDefault(); next(); }
+            else if (e.key === 'ArrowLeft') { e.preventDefault(); prev(); }
+            else if (e.key === 'f' || e.key === 'F') { toggleFS(); }
+        });
+
+        // Fullscreen
+        function toggleFS() {
+            if (!document.fullscreenElement) {
+                document.documentElement.requestFullscreen?.();
+            } else {
+                document.exitFullscreen?.();
+            }
+        }
+        fsBtn.addEventListener('click', toggleFS);
+
+        // Старт
+        goTo(0);
+    })();
+</script>
+
+</body>
+</html>
