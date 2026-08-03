@@ -10,6 +10,7 @@
     <strong>🚀 Старт в мир программирования</strong><br>
     <em>Установка, настройка и первый код</em>
   </p>
+
   
   <p align="center">
     <a href="#-цель-урока">
@@ -29,6 +30,9 @@
 
 
 # 🐍 Урок 1: Установка Python и создание первой программы
+
+> [!NOTE]
+> Без установки особого программного обеспечения, нам будут недоступны файлы написанные на Python, которые нам надо будет писать. То есть ваш компьютер не знаком с этим языком и ему требуется интерпретатор, именно эта программа или служба, именно она будет объяснять машине (компу), что же именно мы написали! Но зачастую собранные специально готовые программы будут доступны на любом компьютере, даже на том на котором Python не установлен!
 
 ## 🎯 Цель урока
 В этом уроке мы:
@@ -108,47 +112,51 @@
 
 ## Часть 2: Установка редактора кода
 
+> [!TIP]
 > Выберите один из трёх вариантов. Для новичков я рекомендую **PyCharm** или **VS Code**.
+> Лучше всего если вы откроете все три сайта для скачивания и убедитесь сразу, что именно для вас подходит.
+> Но, я все же советую, если это возможно, установить все три варианта, так как они равноценно полезны для тех или иных задач связанных с программированием. Далее мы разберем установку каждого из трех редакторов, а чуть позже в других уроках я покажу как именно работать в каждом из них.
 
-### Вариант А: PyCharm (рекомендуется для начинающих)
+### Вариант A: PyCharm (рекомендуется для полноценной работы с Python).
 
-**PyCharm** — это полноценная среда разработки с подсветкой кода, подсказками и отладчиком.
+**PyCharm** — это профессиональная среда разработки с подсветкой кода, подсказками, отладчиком и множеством плагинов.
 
 1. Перейдите на сайт: 
    ```
    https://www.jetbrains.com/pycharm/download/
    ```
 
-   ![Скачивание PyCharm](./screens/pycharm-download.png)
+   ![Скачивание PyCharm](https://github.com/Gabryelf/Programming-Tutorials/blob/main/docs/screens/python/start-lesson-1/py7.png)
 
 2. Выберите версию **Community** (бесплатная) и нажмите **Download**.
 
 3. Запустите скачанный установщик.
-4. В настройках установки оставьте все галочки по умолчанию и нажмите **Next**.
 
-   ![Установка PyCharm](./screens/pycharm-install.png)
+4. В настройках установки оставьте все галочки по умолчанию и нажмите **Next**.
 
 5. После установки запустите PyCharm.
 
 ---
 
-### Вариант Б: VS Code (универсальный редактор)
+### Вариант B: VS Code (универсальный редактор)
 
-**VS Code** — лёгкий редактор с поддержкой Python через расширения.
+**VS Code** — лёгкий редактор с поддержкой Python через расширения. Но что еще важнее, в нем можно писать не только на Python, и это может пригодиться для смежных языков и технологий.
 
 1. Перейдите на сайт:
    ```
    https://code.visualstudio.com/download
    ```
 
-   ![Скачивание VS Code](./screens/vscode-download.png)
+   ![Скачивание VS Code](https://github.com/Gabryelf/Programming-Tutorials/blob/main/docs/screens/python/start-lesson-1/py8.png)
 
 2. Скачайте установщик для Windows.
 3. Запустите установку, принимая все настройки по умолчанию.
 
-   ![Установка VS Code](./screens/vscode-install.png)
+   ![Установка VS Code](https://github.com/Gabryelf/Programming-Tutorials/blob/main/docs/screens/python/start-lesson-1/py9.png)
 
-4. **Важно!** После установки установите расширение Python:
+      ![Скачивание Sublime Text](https://github.com/Gabryelf/Programming-Tutorials/blob/main/docs/screens/python/start-lesson-1/py10.png)
+
+5. **Важно!** После установки установите расширение Python:
    - Откройте VS Code
    - Нажмите на иконку расширений (слева, 4 квадрата)
    - Найдите "Python" от Microsoft
@@ -156,7 +164,7 @@
 
 ---
 
-### Вариант В: Sublime Text (минималистичный редактор)
+### Вариант C: Sublime Text (минималистичный редактор)
 
 **Sublime Text** — быстрый и простой редактор, хорошо подходит для написания небольших скриптов.
 
@@ -165,10 +173,12 @@
    https://www.sublimetext.com/download
    ```
 
-   ![Скачивание Sublime Text](./screens/sublime-download.png)
+   ![Скачивание Sublime Text](https://github.com/Gabryelf/Programming-Tutorials/blob/main/docs/screens/python/start-lesson-1/py11.png)
 
-2. Скачайте установщик для Windows.
-3. Запустите установку, следуя инструкциям на экране.
+   ![Создание проекта](https://github.com/Gabryelf/Programming-Tutorials/blob/main/docs/screens/python/start-lesson-1/py12.png)
+
+3. Скачайте установщик для Windows.
+4. Запустите установку, следуя инструкциям на экране.
 
 ---
 
@@ -178,7 +188,7 @@
 
 ### Шаг 1: Создание папки проекта
 
-1. Создайте папку `my_first_python` на рабочем столе.
+1. Создайте папку `my_first_python` на рабочем столе (имя папки важно только для подсказок далее, вы можете назвать ее иначе).
 2. Откройте эту папку.
 
 ---
@@ -190,22 +200,29 @@
 2. Укажите путь к папке: `C:\Users\Ваше_имя\Desktop\my_first_python`
 3. Нажмите **Create**
 
-   ![Создание проекта](./screens/first-project.png)
+   ![Создание проекта](https://github.com/Gabryelf/Programming-Tutorials/blob/main/docs/screens/python/start-lesson-1/py13.png)
 
 4. В открывшемся окне кликните правой кнопкой по папке проекта → **New → Python File**
 5. Назовите файл `hello` и нажмите Enter.
 
 #### В VS Code:
 1. Откройте VS Code → **File → Open Folder**
-2. Выберите папку `my_first_python`
+2. Выберите папку `my_first_python` (или любую другую)
 3. Нажмите на иконку "New File" в боковой панели или нажмите **Ctrl+N**
-4. Сохраните файл как `hello.py` (не забудьте расширение `.py`)
+4. Сохраните файл как `main.py` (не забудьте расширение `.py`)
+
+   ![Создание проекта](https://github.com/Gabryelf/Programming-Tutorials/blob/main/docs/screens/python/start-lesson-1/py14.png)
+
+     ![Создание проекта](https://github.com/Gabryelf/Programming-Tutorials/blob/main/docs/screens/python/start-lesson-1/py17.png)
 
 #### В Sublime Text:
 1. Откройте Sublime Text
 2. Нажмите **File → New File**
 3. Нажмите **File → Save As...**
-4. Выберите папку `my_first_python`, назовите файл `hello.py`
+4. Выберите папку `my_first_python` (или любую другую), назовите файл `main.py`
+ 
+  ![Создание проекта](https://github.com/Gabryelf/Programming-Tutorials/blob/main/docs/screens/python/start-lesson-1/py15.png)
+
 
 ---
 
@@ -245,21 +262,25 @@ print("Привет,", name, "! Добро пожаловать в мир Python
 ### Шаг 4: Запуск программы
 
 #### В PyCharm:
-- Нажмите правой кнопкой по файлу `hello.py`
-- Выберите **Run 'hello'**
+- Нажмите правой кнопкой по файлу `main.py`
+- Выберите **Run 'main'**
 - Или просто нажмите зелёную кнопку ▶️ в правом верхнем углу
 
-   ![Запуск в PyCharm](./screens/hello-world.png)
+   ![Запуск в PyCharm](https://github.com/Gabryelf/Programming-Tutorials/blob/main/docs/screens/python/start-lesson-1/py16.png)
 
 #### В VS Code:
-1. Откройте файл `hello.py`
+1. Откройте файл `main.py`
 2. Нажмите на треугольник ▶️ в правом верхнем углу
 3. Или нажмите **Ctrl+F5**
+
+ ![Запуск в VS](https://github.com/Gabryelf/Programming-Tutorials/blob/main/docs/screens/python/start-lesson-1/py18.png)
 
 #### В Sublime Text:
 1. Откройте файл `hello.py`
 2. Нажмите **Tools → Build**
 3. Или нажмите **Ctrl+B**
+
+ ![Запуск в VS](https://github.com/Gabryelf/Programming-Tutorials/blob/main/docs/screens/python/start-lesson-1/py19.png)
 
 #### Через командную строку (работает всегда):
 1. Откройте командную строку (Win+R → cmd)
